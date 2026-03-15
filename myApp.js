@@ -20,7 +20,7 @@ app.get('/json',function(req,res){
 if(process.env.MESSAGE_STYLE==="uppercase"){
     message=message.toUpperCase();
 }
-res.join({"message":message});
+res.json({"message":message});
 });
 
 
