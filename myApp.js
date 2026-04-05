@@ -30,14 +30,20 @@ if(process.env.MESSAGE_STYLE==="uppercase"){
 }
 res.json({"message":message});
 });
-app.get('/:word/echo',function(req,res){
-    res.json({echo:req.params.word});
-});
+
 app.get('/name',function(req,res){
     let fullName=req.query.first+' '+req.query.last;
     res.json({name:fullName});
 });
-
+app.get('/:word/echo',function(req,res){
+    res.json({echo:req.params.word});
+}); //dynamic routes at last so it should match first upward routes first
+const bodyParser=require('body-parser');
+app.use(bodyParser.urlencoded({extended:false}));
+app.post('/name',function(req,res){
+    let fullName=req.body.first+' '+req.body.last;
+    res.json({name:fullName});
+});
 
 
 
