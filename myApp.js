@@ -6,7 +6,11 @@ let app = express();
 //app.get('/',function(req,res){
  //res.send('Hello Express');
 //});
-
+app.use(function(req,res,next){
+    console.log(`${req.method} ${req.path} - ${req.ip}`);
+                        
+  next(); //without this req gets stuck
+});
 app.get('/',function(req,res){
     res.sendFile(__dirname+'/views/index.html');
 
