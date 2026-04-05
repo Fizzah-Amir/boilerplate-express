@@ -20,9 +20,7 @@ app.get('/',function(req,res){
 app.use('/public',express.static(__dirname+'/public'));
 
 
-app.get('/:word/echo',function(req,res){
-    res.json({echo:req.params.word});
-});
+
 app.get('/json',function(req,res){
     let message="Hello json";
     
@@ -76,4 +74,4 @@ module.exports=app;
 
 
 
- module.exports = app;
+
