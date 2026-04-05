@@ -23,7 +23,9 @@ app.get('/now',function(req,res,next){
     res.json ({time:req.time});
 });
 
-
+app.get('/:word/echo',function(req,res){
+    res.json({echo:req.params.word});
+});
 app.get('/json',function(req,res){
     let message="Hello json";
     
@@ -33,6 +35,7 @@ if(process.env.MESSAGE_STYLE==="uppercase"){
 }
 res.json({"message":message});
 });
+
 
 
 
