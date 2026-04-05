@@ -1,6 +1,8 @@
 require('dotenv').config()
 let express = require('express');
 let app = express();
+const bodyParser=require('body-parser');
+app.use(bodyParser.urlencoded({extended:false}));
 //console.log("Hello World");
 
 //app.get('/',function(req,res){
@@ -38,13 +40,12 @@ app.get('/name',function(req,res){
 app.get('/:word/echo',function(req,res){
     res.json({echo:req.params.word});
 }); //dynamic routes at last so it should match first upward routes first
-const bodyParser=require('body-parser');
-app.use(bodyParser.urlencoded({extended:false}));
+
 app.post('/name',function(req,res){
     let fullName=req.body.first+' '+req.body.last;
     res.json({name:fullName});
 });
-
+module.exports=app;
 
 
 
