@@ -33,6 +33,11 @@ res.json({"message":message});
 app.get('/:word/echo',function(req,res){
     res.json({echo:req.params.word});
 });
+app.get('/name',function(req,res){
+    let fullName=req.query.first+' '+req.query.last;
+    res.json({name:fullName});
+});
+
 
 
 
